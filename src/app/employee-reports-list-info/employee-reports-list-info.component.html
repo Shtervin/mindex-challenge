@@ -1,0 +1,5 @@
+<mat-grid-list class="employee-list" cols="1" rowHeight="2:1">
+    <div *ngFor="let emp of employees">
+      <app-employee-reports-info [employee]="emp" ></app-employee-reports-info>
+    </div>
+  </mat-grid-list>

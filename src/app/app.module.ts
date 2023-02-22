@@ -15,12 +15,16 @@ import {MatInputModule} from '@angular/material/input';
 import {MatMenuModule} from '@angular/material/menu';
 import {MatIconModule} from '@angular/material/icon';
 import {MatButtonModule} from '@angular/material/button';
+import { EmployeeReportsInfoComponent } from './employee-reports-info/employee-reports-info.component';
+import { EmployeeReportsListInfoComponent } from './employee-reports-list-info/employee-reports-list-info.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     EmployeeComponent,
-    EmployeeListComponent
+    EmployeeListComponent,
+    EmployeeReportsInfoComponent,
+    EmployeeReportsListInfoComponent
   ],
   imports: [
     BrowserModule,

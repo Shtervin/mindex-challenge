@@ -1,6 +1,6 @@
 import {Component, Input} from '@angular/core';
 
-import {Employee} from '../employee';
+import {Employee, Reports} from '../employee';
 
 @Component({
   selector: 'app-employee',
@@ -9,7 +9,13 @@ import {Employee} from '../employee';
 })
 export class EmployeeComponent {
   @Input() employee: Employee;
-
+  @Input() totalReports: Reports;
   constructor() {
   }
+
+  ngOnInit(): void {
+    console.log(this.totalReports, this.employee);
+  }
+
+
 }

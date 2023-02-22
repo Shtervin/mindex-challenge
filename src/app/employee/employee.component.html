@@ -8,5 +8,7 @@
       <dt>Job Title</dt>
       <dd>{{employee.position}}</dd>
     </dl>
+      Direct Reports
+      <app-employee-reports-list-info [employees] = "totalReports.directReports"></app-employee-reports-list-info>
   </mat-card-content>
 </mat-card>
