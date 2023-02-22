@@ -9,9 +9,11 @@ import { Employee } from '../employee';
 export class EmployeeReportsListInfoComponent implements OnInit {
 
   @Input() employees: Employee[];
+
   constructor() { }
 
   ngOnInit(): void {
+
   }
 
 }
