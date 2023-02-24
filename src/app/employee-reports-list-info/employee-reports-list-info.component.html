@@ -1,6 +1,6 @@
 <mat-grid-list class="employee-list" *ngIf="employees.length !== 0 else defaultMessage" cols="1" rowHeight="2:1">
     <div *ngFor="let emp of employees">
-      <app-employee-reports-info [employee]="emp" ></app-employee-reports-info>
+      <app-employee-reports-info [employee]="emp" (newDeleteEvent)="handleDeletedEvent($event)" ></app-employee-reports-info>
     </div>
   </mat-grid-list>
 

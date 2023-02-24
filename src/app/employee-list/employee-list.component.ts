@@ -1,8 +1,8 @@
-import {Component, OnInit} from '@angular/core';
-import {catchError, map, reduce} from 'rxjs/operators';
+import { Component, OnInit } from '@angular/core';
+import { catchError, map, reduce } from 'rxjs/operators';
 
-import {Employee} from '../employee';
-import {EmployeeService} from '../employee.service';
+import { Employee } from '../employee';
+import { EmployeeService } from '../employee.service';
 
 import { Reports } from '../employee';
 
@@ -23,7 +23,7 @@ export class EmployeeListComponent implements OnInit {
     this.employeeService.getAll()
       .pipe(
         reduce((emps: Employee[], e: Employee) => emps.concat(e), []),
-        map(emps =>{ this.employees = emps}),
+        map(emps => { this.employees = emps }),
         catchError(this.handleError.bind(this))
       ).subscribe(() => {
         let idToPerson = {};
@@ -47,10 +47,10 @@ export class EmployeeListComponent implements OnInit {
             j++;
           }
           let directReportsInfo = [];
-          if(this.employees[i].directReports !== undefined){
-            for(let k = 0; k < this.employees[i].directReports.length; k++){
+          if (this.employees[i].directReports !== undefined) {
+            for (let k = 0; k < this.employees[i].directReports.length; k++) {
               this.employees.forEach((employee) => {
-                if(employee.id === this.employees[i].directReports[k]){
+                if (employee.id === this.employees[i].directReports[k]) {
                   directReportsInfo.push(employee);
                 }
               })
@@ -59,8 +59,19 @@ export class EmployeeListComponent implements OnInit {
           this.allReports.push(new Reports(person.id, totalReportsCount, directReportsInfo));
         }
 
-        console.log(this.allReports);
       });
+  }
+
+  handleDeletedEvent(employeeId: number[]) {
+    this.allReports = this.allReports.filter(report => {
+      if(report.id !== employeeId[0]){
+        return true;
+      }
+      report.directReports = report.directReports.filter(directReport => directReport.id !== employeeId[1]);
+
+      return true;
+    })
+
   }
 
 

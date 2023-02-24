@@ -1,4 +1,4 @@
-import {Component, Input} from '@angular/core';
+import {Component, Input, Output, EventEmitter} from '@angular/core';
 
 import {Employee, Reports} from '../employee';
 
@@ -10,12 +10,16 @@ import {Employee, Reports} from '../employee';
 export class EmployeeComponent {
   @Input() employee: Employee;
   @Input() totalReports: Reports;
+  @Output() newDeleteEvent = new EventEmitter<number[]>();
+
   constructor() {
   }
 
   ngOnInit(): void {
-    console.log(this.totalReports, this.employee);
   }
 
+  handleDeletedEvent(employeeId: number){
+    this.newDeleteEvent.emit([this.employee.id, employeeId]);
+  }
 
 }
