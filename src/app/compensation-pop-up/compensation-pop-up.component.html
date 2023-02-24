@@ -1,0 +1,25 @@
+<h2 mat-dialog-title>{{ title }}</h2>
+<div mat-dialog-content>
+    <mat-form-field appearance="outline">
+        <mat-label>First Name</mat-label>
+        <input matInput placeholder={{firstName}}>
+      </mat-form-field><br>
+      <mat-form-field appearance="outline">
+        <mat-label>Last  Name</mat-label>
+        <input matInput placeholder={{lastName}}>
+      </mat-form-field><br>
+      <mat-form-field appearance="outline">
+        <mat-label>Title</mat-label>
+        <input matInput placeholder={{position}}>
+      </mat-form-field><br>
+      <mat-form-field appearance="outline">
+        <mat-label>Compensation</mat-label>
+        <input matInput placeholder={{firstName}}>
+      </mat-form-field>
+
+</div>
+<div mat-dialog-actions>
+  <button mat-button (click)="onSave()">Save</button>
+  <button mat-button (click)="onCancel()">Cancel</button>
+
+</div>

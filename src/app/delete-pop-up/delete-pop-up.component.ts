@@ -22,6 +22,13 @@ export class DeletePopUpComponent {
     return this.data.message || 'This is the default message.';
   }
 
+  get employeeInfo() {
+    return this.data.employeeInfo || 'Employee name here';
+  }
+
+  get confirmation() {
+    return this.data.confirmation || 'This is a confirmation message'
+  }
   onOk() {
     this.onOkEmitter.emit(true);
     this.dialogRef.close();

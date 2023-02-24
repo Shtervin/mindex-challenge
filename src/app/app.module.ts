@@ -19,6 +19,7 @@ import { EmployeeReportsInfoComponent } from './employee-reports-info/employee-r
 import { EmployeeReportsListInfoComponent } from './employee-reports-list-info/employee-reports-list-info.component';
 import { DeletePopUpComponent } from './delete-pop-up/delete-pop-up.component';
 import { MatDialogModule } from '@angular/material/dialog';
+import { CompensationPopUpComponent } from './compensation-pop-up/compensation-pop-up.component';
 
 @NgModule({
   declarations: [
@@ -27,7 +28,8 @@ import { MatDialogModule } from '@angular/material/dialog';
     EmployeeListComponent,
     EmployeeReportsInfoComponent,
     EmployeeReportsListInfoComponent,
-    DeletePopUpComponent
+    DeletePopUpComponent,
+    CompensationPopUpComponent
   ],
   imports: [
     BrowserModule,

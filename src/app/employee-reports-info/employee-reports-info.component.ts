@@ -2,6 +2,7 @@ import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { Employee } from '../employee';
 import { DeletePopUpComponent } from '../delete-pop-up/delete-pop-up.component';
+import { CompensationPopUpComponent } from '../compensation-pop-up/compensation-pop-up.component';
 
 @Component({
   selector: 'app-employee-reports-info',
@@ -20,12 +21,27 @@ export class EmployeeReportsInfoComponent implements OnInit {
     const dialog = this.dialog.open(DeletePopUpComponent, {
       data: {
         title: 'DELETE DIRECT REPORTS',
-        message: "Permanently delete direct report " + this.employee.firstName + " " + this.employee.lastName
+        message: "Permanently delete direct report ",
+        employeeInfo: this.employee.firstName + " " + this.employee.lastName + "?",
+        confirmation: "This action cannot be undone."
       }
     });
     dialog.componentInstance.onOkEmitter.subscribe((event) => {
       if (event === true){
         this.newDeleteEvent.emit(this.employee.id);
+      }
+    })
+  }
+  onSave(){
+
+  }
+
+  editCompensation(){
+    this.dialog.open(CompensationPopUpComponent, {
+      data: {
+        firstName: this.employee.firstName,
+        lastName: this.employee.lastName,
+        position: this.employee.position
       }
     })
   }
