@@ -17,6 +17,8 @@ import {MatIconModule} from '@angular/material/icon';
 import {MatButtonModule} from '@angular/material/button';
 import { EmployeeReportsInfoComponent } from './employee-reports-info/employee-reports-info.component';
 import { EmployeeReportsListInfoComponent } from './employee-reports-list-info/employee-reports-list-info.component';
+import { DeletePopUpComponent } from './delete-pop-up/delete-pop-up.component';
+import { MatDialogModule } from '@angular/material/dialog';
 
 @NgModule({
   declarations: [
@@ -24,7 +26,8 @@ import { EmployeeReportsListInfoComponent } from './employee-reports-list-info/e
     EmployeeComponent,
     EmployeeListComponent,
     EmployeeReportsInfoComponent,
-    EmployeeReportsListInfoComponent
+    EmployeeReportsListInfoComponent,
+    DeletePopUpComponent
   ],
   imports: [
     BrowserModule,
@@ -43,7 +46,8 @@ import { EmployeeReportsListInfoComponent } from './employee-reports-list-info/e
     MatInputModule,
     MatMenuModule,
     MatIconModule,
-    MatButtonModule
+    MatButtonModule,
+    MatDialogModule
   ],
   providers: [EmployeeService],
   bootstrap: [AppComponent]
