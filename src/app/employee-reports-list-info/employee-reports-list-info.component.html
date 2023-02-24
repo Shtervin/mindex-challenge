@@ -1,11 +1,13 @@
 <mat-grid-list class="employee-list" *ngIf="employees.length !== 0 else defaultMessage" cols="1" rowHeight="2:1">
     <div *ngFor="let emp of employees">
-      <app-employee-reports-info [employee]="emp" (newDeleteEvent)="handleDeletedEvent($event)" ></app-employee-reports-info>
+      <div class="direct-report">
+        <app-employee-reports-info [employee]="emp" (newDeleteEvent)="handleDeletedEvent($event)" (updatedCompensation)="handleUpdatedCompensation($event)"></app-employee-reports-info>
+      </div>
     </div>
   </mat-grid-list>
 
   <ng-template #defaultMessage>
-    <div>
+    <div class="default">
       This employee has no reports.
     </div>
   </ng-template>

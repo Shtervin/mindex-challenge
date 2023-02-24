@@ -10,7 +10,7 @@ export class EmployeeReportsListInfoComponent implements OnInit {
 
   @Input() employees: Employee[];
   @Output() newDeleteEvent = new EventEmitter<number>();
-
+  @Output() updatedCompensationEmitter = new EventEmitter<number[]>();
   constructor() { }
 
   ngOnInit(): void {
@@ -19,6 +19,10 @@ export class EmployeeReportsListInfoComponent implements OnInit {
 
   handleDeletedEvent(employeeId: number) {
     this.newDeleteEvent.emit(employeeId);
+  }
+
+  handleUpdatedCompensation(compensationArray: number[]){
+    this.updatedCompensationEmitter.emit(compensationArray);
   }
 
 }

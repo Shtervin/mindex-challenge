@@ -12,6 +12,7 @@ import { CompensationPopUpComponent } from '../compensation-pop-up/compensation-
 export class EmployeeReportsInfoComponent implements OnInit {
   @Input() employee: Employee;
   @Output() newDeleteEvent = new EventEmitter<number>();
+  @Output() updatedCompensation = new EventEmitter<number[]>();
   constructor(private dialog: MatDialog) { }
 
   ngOnInit(): void {
@@ -37,12 +38,16 @@ export class EmployeeReportsInfoComponent implements OnInit {
   }
 
   editCompensation(){
-    this.dialog.open(CompensationPopUpComponent, {
+    const dialog = this.dialog.open(CompensationPopUpComponent, {
       data: {
         firstName: this.employee.firstName,
         lastName: this.employee.lastName,
-        position: this.employee.position
+        position: this.employee.position,
+        existingCompensation: this.employee.compensation
       }
+    })
+    dialog.componentInstance.onSaveEmitter.subscribe(event => {
+      this.updatedCompensation.emit([this.employee.id, event])
     })
   }
 

@@ -5,13 +5,13 @@ import {Employee, Reports} from '../employee';
 @Component({
   selector: 'app-employee',
   templateUrl: './employee.component.html',
-  styleUrls: ['./employee.component.css']
+  styleUrls: ['./employee.component.scss']
 })
 export class EmployeeComponent {
   @Input() employee: Employee;
   @Input() totalReports: Reports;
   @Output() newDeleteEvent = new EventEmitter<number[]>();
-
+  @Output() updatedCompensationEmitter = new EventEmitter<number[]>()
   constructor() {
   }
 
@@ -22,4 +22,7 @@ export class EmployeeComponent {
     this.newDeleteEvent.emit([this.employee.id, employeeId]);
   }
 
+  handleUpdatedCompensation(compensationArray: number[]){
+    this.updatedCompensationEmitter.emit(compensationArray);
+  }
 }

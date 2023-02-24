@@ -74,6 +74,17 @@ export class EmployeeListComponent implements OnInit {
 
   }
 
+  handleUpdatedCompensation(compensationArray: number[]){
+    this.employees = this.employees.filter(emp => {
+      if(emp.id !== compensationArray[0]){
+        return true;
+      }
+      emp.compensation = compensationArray[1];
+
+      return true;
+    })
+  }
+
 
 
   private handleError(e: Error | any): string {

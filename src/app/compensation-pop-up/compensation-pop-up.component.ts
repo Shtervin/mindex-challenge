@@ -6,11 +6,11 @@ import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
   styleUrls: ['./compensation-pop-up.component.css']
 })
 export class CompensationPopUpComponent {
-  @Output() onOkEmitter = new EventEmitter<boolean>();
+  @Output() onSaveEmitter = new EventEmitter<number>();
   firstName: string = "";
   lastName: string = "";
   position: string = "";
-
+  compensation: number;
 
   constructor(
     public dialogRef: MatDialogRef<CompensationPopUpComponent>,
@@ -30,13 +30,16 @@ export class CompensationPopUpComponent {
     return this.data.message || 'This is the default message.';
   }
 
-  onOk() {
-    this.onOkEmitter.emit(true);
+  get existingCompensation() {
+    return this.data.existingCompensation !== undefined ? "$" + this.data.existingCompensation : "$0";
+  }
+
+  onSave() {
+    this.onSaveEmitter.emit(this.compensation);
     this.dialogRef.close();
   }
   
   onCancel() {
-    this.onOkEmitter.emit(false);
     this.dialogRef.close();
   }
 
