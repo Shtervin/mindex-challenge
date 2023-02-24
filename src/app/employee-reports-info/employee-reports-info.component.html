@@ -5,8 +5,12 @@
                 {{employee.firstName}} {{employee.lastName}}, {{employee.position}}
             </div>
             <div class="buttons">
-                <button (click)="editCompensation()">Edit</button>
-                <button (click) = "deleteReport()">Delete</button>
+                <button (click)="editCompensation()" mat-button>
+                    <mat-icon>edit</mat-icon>
+                </button>
+                <button (click) = "deleteReport()" mat-button>
+                    <mat-icon>delete</mat-icon>
+                </button>
             </div>
         </div>
     </mat-card-content>

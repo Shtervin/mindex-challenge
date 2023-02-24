@@ -1,10 +1,10 @@
 <mat-card class="employee">
   <mat-card-header>
-    <mat-card-title>{{employee.firstName}} {{employee.lastName}}, {{employee.position}}</mat-card-title>
+    <mat-card-title class="title">{{employee.firstName}} {{employee.lastName}}, {{employee.position}}</mat-card-title>
     <mat-card-subtitle>Employee ID: {{employee.id}} Direct Reports: {{totalReports.totalReports}}</mat-card-subtitle>
   </mat-card-header>
-  <mat-card-content>
-      Direct Reports
+  <mat-card-content class="content">
+      Direct Reports:
       <app-employee-reports-list-info [employees] = "totalReports.directReports" (newDeleteEvent)="handleDeletedEvent($event)"></app-employee-reports-list-info>
   </mat-card-content>
 </mat-card>
