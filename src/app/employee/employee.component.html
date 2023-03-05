@@ -8,6 +8,8 @@
     <div class="report">
       Direct Reports:
     </div>
-      <app-employee-reports-list-info [employees] = "totalReports.directReports" (newDeleteEvent)="handleDeletedEvent($event)" (updatedCompensationEmitter)="handleUpdatedCompensation($event)"></app-employee-reports-list-info>
+    <app-employee-reports-list-info [employees]="totalReports.directReports"
+      (newDeleteEvent)="handleDeletedEvent($event)"
+      (updatedCompensationEmitter)="handleUpdatedCompensation($event)"></app-employee-reports-list-info>
   </mat-card-content>
 </mat-card>

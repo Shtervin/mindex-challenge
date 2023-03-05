@@ -1,5 +1,6 @@
-<mat-grid-list class="employee-list"  cols="1">
+<mat-grid-list class="employee-list" cols="1">
   <div *ngFor="let emp of employees; index as i">
-    <app-employee [employee]="emp" [totalReports] = "allReports[i]" (newDeleteEvent)="handleDeletedEvent($event)" (updatedCompensationEmitter)="handleUpdatedCompensation($event)"></app-employee>
+    <app-employee [employee]="emp" [totalReports]="allReports[i]" (newDeleteEvent)="handleDeletedEvent($event)"
+      (updatedCompensationEmitter)="handleUpdatedCompensation($event)"></app-employee>
   </div>
 </mat-grid-list>

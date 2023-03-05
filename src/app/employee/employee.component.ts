@@ -1,28 +1,26 @@
-import {Component, Input, Output, EventEmitter} from '@angular/core';
+import { Component, Input, Output, EventEmitter } from "@angular/core";
 
-import {Employee, Reports} from '../employee';
+import { Employee, Reports } from "../employee";
 
 @Component({
-  selector: 'app-employee',
-  templateUrl: './employee.component.html',
-  styleUrls: ['./employee.component.css']
+  selector: "app-employee",
+  templateUrl: "./employee.component.html",
+  styleUrls: ["./employee.component.css"],
 })
 export class EmployeeComponent {
   @Input() employee: Employee;
   @Input() totalReports: Reports;
   @Output() newDeleteEvent = new EventEmitter<number[]>();
-  @Output() updatedCompensationEmitter = new EventEmitter<number[]>()
-  constructor() {
-  }
+  @Output() updatedCompensationEmitter = new EventEmitter<number[]>();
+  constructor() {}
 
-  ngOnInit(): void {
-  }
+  ngOnInit(): void {}
 
-  handleDeletedEvent(employeeId: number){
+  handleDeletedEvent(employeeId: number) {
     this.newDeleteEvent.emit([this.employee.id, employeeId]);
   }
 
-  handleUpdatedCompensation(compensationArray: number[]){
+  handleUpdatedCompensation(compensationArray: number[]) {
     this.updatedCompensationEmitter.emit(compensationArray);
   }
 }
