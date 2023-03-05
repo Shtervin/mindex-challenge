@@ -33,9 +33,6 @@ export class EmployeeReportsInfoComponent implements OnInit {
       }
     })
   }
-  onSave(){
-
-  }
 
   editCompensation(){
     const dialog = this.dialog.open(CompensationPopUpComponent, {

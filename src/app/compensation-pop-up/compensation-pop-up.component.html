@@ -2,15 +2,15 @@
 <div mat-dialog-content>
     <mat-form-field appearance="outline">
         <mat-label>First Name</mat-label>
-        <input matInput placeholder={{firstName}}>
+        <input matInput placeholder={{firstNameData}}>
       </mat-form-field><br>
       <mat-form-field appearance="outline">
         <mat-label>Last  Name</mat-label>
-        <input matInput placeholder={{lastName}}>
+        <input matInput placeholder={{lastNameData}}>
       </mat-form-field><br>
       <mat-form-field appearance="outline">
         <mat-label>Title</mat-label>
-        <input matInput placeholder={{position}}>
+        <input matInput placeholder={{positionData}}>
       </mat-form-field><br>
       <mat-form-field appearance="outline">
         <mat-label>Compensation</mat-label>
@@ -19,7 +19,7 @@
 
 </div>
 <div mat-dialog-actions>
-  <button mat-button (click)="onSave()">Save</button>
-  <button mat-button (click)="onCancel()">Cancel</button>
+  <button mat-button class="save-button" (click)="onSave()">Save</button>
+  <button mat-button class="cancel-button" (click)="onCancel()">Cancel</button>
 
 </div>

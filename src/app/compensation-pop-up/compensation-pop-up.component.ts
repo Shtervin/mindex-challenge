@@ -15,11 +15,18 @@ export class CompensationPopUpComponent {
   constructor(
     public dialogRef: MatDialogRef<CompensationPopUpComponent>,
     @Inject(MAT_DIALOG_DATA) public data: any
-  ) {
-    this.firstName = this.data.firstName;
-    this.lastName = this.data.lastName;
-    this.position = this.data.position;
+  ) {}
+  
+  get firstNameData () {
+    return this.data.firstName || 'first name'
+  }
 
+  get lastNameData () {
+    return this.data.lastName || 'last name'
+  }
+
+  get positionData () {
+    return this.data.position || 'position name'
   }
 
   get title() {

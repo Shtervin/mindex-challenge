@@ -58,4 +58,16 @@ describe('EmployeeReportsListInfoComponent', () => {
     expect(component).toBeTruthy();
   });
 
+  it('should emit an employee id',  () => {
+    spyOn(component.newDeleteEvent, "emit");
+    component.handleDeletedEvent(1);
+    expect(component.newDeleteEvent.emit).toHaveBeenCalledWith(1);
+  });
+
+  it('should emit an array with employee id and compensation',  () => {
+    spyOn(component.updatedCompensationEmitter, "emit");
+    component.handleUpdatedCompensation([1, 15000]);
+    expect(component.updatedCompensationEmitter.emit).toHaveBeenCalledWith([1, 15000]);
+  });
+
 });

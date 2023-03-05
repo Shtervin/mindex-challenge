@@ -1,7 +1,8 @@
-import {async, TestBed} from '@angular/core/testing';
+import {async, ComponentFixture, TestBed} from '@angular/core/testing';
 import {Component} from '@angular/core';
 
 import {EmployeeComponent} from './employee.component';
+import { Reports } from '../employee';
 
 @Component({selector: 'app-mat-card', template: ''})
 class CardComponent {
@@ -23,9 +24,9 @@ class CardSubtitleComponent {
 class CardContentComponent {
 }
 
-const employeeServiceSpy = jasmine.createSpyObj('EmployeeService', ['getAll', 'get', 'save', 'remove']);
-
 describe('EmployeeComponent', () => {
+  let component: EmployeeComponent;
+  let fixture: ComponentFixture<EmployeeComponent>;
   beforeEach(async(() => {
     TestBed.configureTestingModule({
       declarations: [
@@ -39,16 +40,34 @@ describe('EmployeeComponent', () => {
     }).compileComponents();
   }));
 
-  it('should create the component', async(() => {
-    const fixture = TestBed.createComponent(EmployeeComponent);
-    const comp = fixture.debugElement.componentInstance;
-    comp.employee = {
+  beforeEach(() => {
+    fixture = TestBed.createComponent(EmployeeComponent);
+    component = fixture.componentInstance;
+    component.employee = {
       id: 1,
       firstName: 'first',
       lastName: 'last',
       position: 'jobTitle'
     };
 
-    expect(comp).toBeTruthy();
+    const reports: Reports = {totalReports: 3, id: 1, directReports: [component.employee]}; 
+    component.totalReports = reports;
+    fixture.detectChanges();
+  });
+
+  it('should create the component', async(() => {
+    expect(component).toBeTruthy();
   }));
+
+  it('should emit an array of employee ids',  () => {
+    spyOn(component.newDeleteEvent, "emit");
+    component.handleDeletedEvent(1);
+    expect(component.newDeleteEvent.emit).toHaveBeenCalledWith([1, component.employee.id]);
+  });
+
+  it('should emit an array with employee id and compensation',  () => {
+    spyOn(component.updatedCompensationEmitter, "emit");
+    component.handleUpdatedCompensation([1, 15000]);
+    expect(component.updatedCompensationEmitter.emit).toHaveBeenCalledWith([1, 15000]);
+  });
 });
