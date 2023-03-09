@@ -29,14 +29,14 @@ export class EmployeeReportsInfoComponent implements OnInit {
     });
     dialog.componentInstance.onOkEmitter.subscribe((event) => {
       if (event === true) {
-        this.newDeleteEvent.emit(this.employee.id);
+        this.newDeleteEvent.emit(this.employee.id);   //emits the employee id of the direct report that is being deleted
       }
     });
   }
 
   editCompensation() {
     const dialog = this.dialog.open(CompensationPopUpComponent, {
-      data: {
+      data: {   
         firstName: this.employee.firstName,
         lastName: this.employee.lastName,
         position: this.employee.position,
@@ -44,7 +44,7 @@ export class EmployeeReportsInfoComponent implements OnInit {
       },
     });
     dialog.componentInstance.onSaveEmitter.subscribe((event) => {
-      this.updatedCompensation.emit([this.employee.id, event]);
+      this.updatedCompensation.emit([this.employee.id, event]);   //sends data of the employee
     });
   }
 }

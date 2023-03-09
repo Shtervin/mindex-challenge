@@ -29,12 +29,12 @@ export class DeletePopUpComponent {
     return this.data.confirmation || "This is a confirmation message";
   }
   onOk() {
-    this.onOkEmitter.emit(true);
-    this.dialogRef.close();
+    this.onOkEmitter.emit(true); //emits true if the ok button is clicked
+    this.dialogRef.close();     //closes the pop-up after the button click
   }
 
   onCancel() {
-    this.onOkEmitter.emit(false);
-    this.dialogRef.close();
+    this.onOkEmitter.emit(false); //emits false if the cancel button is clicked
+    this.dialogRef.close();      // closes the pop-up
   }
 }

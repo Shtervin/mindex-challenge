@@ -17,10 +17,10 @@ export class EmployeeComponent {
   ngOnInit(): void {}
 
   handleDeletedEvent(employeeId: number) {
-    this.newDeleteEvent.emit([this.employee.id, employeeId]);
+    this.newDeleteEvent.emit([this.employee.id, employeeId]); //sends data to the parent component employee-list 
   }
 
   handleUpdatedCompensation(compensationArray: number[]) {
-    this.updatedCompensationEmitter.emit(compensationArray);
+    this.updatedCompensationEmitter.emit(compensationArray);  //sends data to the parent component employee-list 
   }
 }

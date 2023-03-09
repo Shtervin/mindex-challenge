@@ -30,11 +30,11 @@ export class EmployeeListComponent implements OnInit {
       )
       .subscribe(() => {
         let idToPerson = {};
-        for (let i = 0; i < this.employees.length; i++) {
+        for (let i = 0; i < this.employees.length; i++) {       //pre-processing data
           idToPerson[this.employees[i].id] = this.employees[i];
         }
 
-        for (let i = 0; i < this.employees.length; i++) {
+        for (let i = 0; i < this.employees.length; i++) {       //start of the BFS to get the total number of reports (direct + indirect)
           let person = this.employees[i];
           let directReports = person.directReports || [];
           let totalReportsCount = directReports.length;
@@ -66,7 +66,7 @@ export class EmployeeListComponent implements OnInit {
       });
   }
 
-  handleDeletedEvent(employeeId: number[]) {
+  handleDeletedEvent(employeeId: number[]) {    //deletes the direct report of employee
     this.allReports = this.allReports.filter((report) => {
       if (report.id !== employeeId[0]) {
         return true;
@@ -79,7 +79,7 @@ export class EmployeeListComponent implements OnInit {
     });
   }
 
-  handleUpdatedCompensation(compensationArray: number[]) {
+  handleUpdatedCompensation(compensationArray: number[]) {  //updates the compensation to the number that was sent from employee-reports-info
     this.employees = this.employees.filter((emp) => {
       if (emp.id !== compensationArray[0]) {
         return true;

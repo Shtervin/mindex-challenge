@@ -15,10 +15,10 @@ export class EmployeeReportsListInfoComponent implements OnInit {
   ngOnInit(): void {}
 
   handleDeletedEvent(employeeId: number) {
-    this.newDeleteEvent.emit(employeeId);
+    this.newDeleteEvent.emit(employeeId);   //sends deleted employee data to the upper/parent component
   }
 
   handleUpdatedCompensation(compensationArray: number[]) {
-    this.updatedCompensationEmitter.emit(compensationArray);
+    this.updatedCompensationEmitter.emit(compensationArray);    //sends compensation data to the upper/parent component
   }
 }
